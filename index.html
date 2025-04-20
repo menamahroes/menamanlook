@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -771,7 +771,7 @@
         <div class="flex-points">
           <div class="flex-amount">13,000 فليكس</div>
         </div>
-        <div class="price-with-tax">بعد الضريبة: 372 جنيه</div>
+        <div class="price-with-tax">بعد الضريبة: 372 جنيه</div> <!-- السعر الأساسي محذوف هنا عن قصد؟ -->
         <div class="no-tax-badge"> سعر التفعيل 250 </div>
         
         <div class="subscriptions">
@@ -814,7 +814,8 @@
           </div>
         </div>
         
-        <button class="btn" onclick="showConfirmation('فليكس 260', '220', '220', '250')">
+        <!-- تأكد من أنك تقصد إرسال 220 للسعر و 372 كسعر ضريبة -->
+        <button class="btn" onclick="showConfirmation('فليكس 260', '220', '372', '250')">
           <i class="fas fa-shopping-cart"></i> اشترك الآن
         </button>
       </div>
@@ -908,7 +909,8 @@
           </div>
         </div>
         
-        <button class="btn" onclick="showConfirmation('بيزنس انترنت متجددة بلا حدود', '100', '100')">
+        <!-- تأكد من أنك تريد إرسال السعر الأخير (سعر التفعيل) أم لا. الكود الحالي لا يرسله لباقة البيزنس -->
+        <button class="btn" onclick="showConfirmation('بيزنس انترنت متجددة بلا حدود', '100', '100', '')"> 
           <i class="fas fa-shopping-cart"></i> اشترك الآن
         </button>
       </div>
@@ -947,7 +949,7 @@
     <div class="confirmation-modal">
       <div class="modal-header">
         <h3 class="modal-title">تأكيد الطلب</h3>
-        <button class="close-modal" onclick="closeConfirmation()">&times;</button>
+        <button class="close-modal" onclick="closeConfirmation()">×</button>
       </div>
       
       <div class="confirmation-details">
@@ -963,9 +965,9 @@
           <span class="detail-label">السعر بعد الضريبة:</span>
           <span class="detail-value" id="confirmPackageTax"></span>
         </div>
-        <div class="detail-row">
+        <div class="detail-row" id="activationPriceRow"> <!-- Added ID for potential hiding -->
           <span class="detail-label"> سعر التفعيل:</span>
-          <span class="detail-value" id="confirmActivationprice"></span>
+          <span class="detail-value" id="confirmActivationprice"></span> <!-- <<< تم التصحيح هنا -->
         </div>
         
         <div class="form-group" style="margin-top: 1.5rem;">
@@ -993,7 +995,7 @@
       <p>للتواصل والاستفسار: <a href="https://wa.me/201095108293">01095108293</a></p>
     </div>
     <div class="copyright">
-     MINA جميع الحقوق محفوظة &copy; 2025 - باقات فودافون فليكس وبيزنس
+     MINA جميع الحقوق محفوظة © 2025 - باقات فودافون فليكس وبيزنس
     </div>
   </footer>
 
@@ -1023,20 +1025,30 @@
     }
     
     // Show confirmation modal
-    function showConfirmation(packageName, price, priceWithTax, Activationprice) {
+    function showConfirmation(packageName, price, priceWithTax, activationPrice) { // Renamed variable for clarity
       currentPackage = {
         name: packageName,
         price: price,
         priceWithTax: priceWithTax,
-        Activationprice: Activationprice
+        activationPrice: activationPrice // Store with consistent name
       };
       
       document.getElementById('confirmPackageName').textContent = packageName;
-      document.getElementById('confirmPackagePrice').textContent = price + ' جنيه';
+      document.getElementById('confirmPackagePrice').textContent = price ? price + ' جنيه' : '-'; // Handle missing price like in Flex 260
       document.getElementById('confirmPackageTax').textContent = priceWithTax + ' جنيه';
-      document.getElementById('confirmActivationprice').textContent = Activationprice + ' جنيه';
-      document.getElementById('confirmPhone').value = '';
       
+      // Update and show/hide Activation Price row
+      const activationPriceRow = document.getElementById('activationPriceRow');
+      const activationPriceValue = document.getElementById('confirmActivationprice');
+      if (activationPrice && activationPrice.trim() !== '') {
+          activationPriceValue.textContent = activationPrice + ' جنيه';
+          activationPriceRow.style.display = 'flex'; // Make sure it's visible
+      } else {
+          activationPriceValue.textContent = ''; // Clear content
+          activationPriceRow.style.display = 'none'; // Hide the row if no activation price (like for Business)
+      }
+
+      document.getElementById('confirmPhone').value = '';
       document.getElementById('confirmationModal').classList.add('active');
     }
     
@@ -1055,7 +1067,13 @@
         return;
       }
       
-      const message = `أريد الاشتراك في باقة ${currentPackage.name}\nرقم الهاتف: ${phone}\nالسعر: ${currentPackage.priceWithTax} جنيه\n\nالرجاء التواصل معي لتأكيد الطلب`;
+      // Construct message - include activation price if it exists
+      let message = `أريد الاشتراك في باقة ${currentPackage.name}\nرقم الهاتف: ${phone}\nالسعر بعد الضريبة: ${currentPackage.priceWithTax} جنيه`;
+      if (currentPackage.activationPrice && currentPackage.activationPrice.trim() !== '') {
+          message += `\nسعر التفعيل: ${currentPackage.activationPrice} جنيه`; // Add activation price if available
+      }
+      message += `\n\nالرجاء التواصل معي لتأكيد الطلب`;
+
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://wa.me/201095108293?text=${encodedMessage}`, '_blank');
       
@@ -1065,20 +1083,22 @@
     // Credit amount handling
     function updateCreditAmount(value) {
       document.getElementById('creditAmount').value = value;
-      document.getElementById('calculatedPrice').textContent = value + ' جنيه';
+      document.getElementById('calculatedPrice').textContent = value + ' جنيه'; // Consider commission here if needed
     }
     
     function updateCreditSlider(value) {
       if (value < 10) value = 10;
       if (value > 200) value = 200;
       document.getElementById('creditAmountSlider').value = value;
-      document.getElementById('calculatedPrice').textContent = value + ' جنيه';
+      document.getElementById('calculatedPrice').textContent = value + ' جنيه'; // Consider commission here if needed
     }
     
     // Send credit request
     function sendCreditRequest() {
       const phone = document.getElementById('creditPhone').value.trim();
       const amount = document.getElementById('creditAmount').value.trim();
+      const commissionRate = 1.25; // 125 جنيه كاش لكل 100 رصيد
+      const requiredCash = amount * commissionRate; 
       
       if (!phone.match(/^01[0-9]{9}$/)) {
         alert('الرجاء إدخال رقم هاتف صحيح (يبدأ بـ 01 ويتكون من 11 رقمًا)');
@@ -1086,15 +1106,23 @@
       }
       
       if (amount < 10 || amount > 200) {
-        alert('الرجاء إدخال مبلغ بين 10 و 200 جنيه');
+        alert('الرجاء إدخال مبلغ رصيد صافي بين 10 و 200 جنيه');
         return;
       }
       
-      const netCredit = Math.floor(amount * 0.8);
-      const message = `أريد شحن رصيد لرقم: ${phone}\nالمبلغ: ${amount} جنيه\nالرصيد الصافي: ${netCredit} جنيه\n\nالرجاء التواصل معي لتأكيد الطلب`;
+      // Message reflects صافي الرصيد والمبلغ المطلوب دفعه
+      const message = `أريد شحن رصيد صافي لرقم: ${phone}\nمبلغ الرصيد الصافي: ${amount} جنيه\nالمبلغ المطلوب دفعه: ${requiredCash.toFixed(2)} جنيه\n\nالرجاء التواصل معي لتأكيد الطلب`;
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://wa.me/201095108293?text=${encodedMessage}`, '_blank');
     }
+
+    // Initial setup to show the default tab
+    document.addEventListener('DOMContentLoaded', () => {
+        showTab('packages'); 
+        // Optional: Update credit preview initially based on default slider value
+        updateCreditAmount(document.getElementById('creditAmountSlider').value); 
+    });
+
   </script>
 </body>
 </html>
