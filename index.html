@@ -615,7 +615,7 @@
           </div>
         </div>
         
-        <button class="btn" onclick="showConfirmation('فليكس 45', '45', '64.29')">
+        <button class="btn" onclick="showConfirmation('فليكس 45', '45', '64.29', '56')">
           <i class="fas fa-shopping-cart"></i> اشترك الآن
         </button>
       </div>
@@ -658,7 +658,7 @@
           </div>
         </div>
         
-        <button class="btn" onclick="showConfirmation('فليكس 70', '70', '100')">
+        <button class="btn" onclick="showConfirmation('فليكس 70', '70', '100', '90')">
           <i class="fas fa-shopping-cart"></i> اشترك الآن
         </button>
       </div>
@@ -709,7 +709,7 @@
           </div>
         </div>
         
-        <button class="btn" onclick="showConfirmation('فليكس 100', '100', '142.86')">
+        <button class="btn" onclick="showConfirmation('فليكس 100', '100', '142.86', '125')">
           <i class="fas fa-shopping-cart"></i> اشترك الآن
         </button>
       </div>
@@ -760,7 +760,7 @@
           </div>
         </div>
         
-        <button class="btn" onclick="showConfirmation('فليكس 150', '150', '214.29')">
+        <button class="btn" onclick="showConfirmation('فليكس 150', '150', '214.29', '188')">
           <i class="fas fa-shopping-cart"></i> اشترك الآن
         </button>
       </div>
@@ -814,7 +814,7 @@
           </div>
         </div>
         
-        <button class="btn" onclick="showConfirmation('فليكس 260', '220', '220')">
+        <button class="btn" onclick="showConfirmation('فليكس 260', '220', '220', '250')">
           <i class="fas fa-shopping-cart"></i> اشترك الآن
         </button>
       </div>
@@ -865,7 +865,7 @@
           </div>
         </div>
         
-        <button class="btn" onclick="showConfirmation('فليكس 300', '300', '428.57')">
+        <button class="btn" onclick="showConfirmation('فليكس 300', '300', '428.57', '375')">
           <i class="fas fa-shopping-cart"></i> اشترك الآن
         </button>
       </div>
@@ -963,6 +963,10 @@
           <span class="detail-label">السعر بعد الضريبة:</span>
           <span class="detail-value" id="confirmPackageTax"></span>
         </div>
+        <div class="detail-row">
+          <span class="detail-label"> سعر التفعيل :</span>
+          <span class="detail-value" id="confirmPackageTax"></span>
+        </div>
         
         <div class="form-group" style="margin-top: 1.5rem;">
           <label class="form-label">رقم الهاتف المراد الاشتراك به</label>
@@ -1019,16 +1023,18 @@
     }
     
     // Show confirmation modal
-    function showConfirmation(packageName, price, priceWithTax) {
+    function showConfirmation(packageName, price, priceWithTax, Activationprice) {
       currentPackage = {
         name: packageName,
         price: price,
         priceWithTax: priceWithTax
+        Activationprice: Activationprice
       };
       
       document.getElementById('confirmPackageName').textContent = packageName;
       document.getElementById('confirmPackagePrice').textContent = price + ' جنيه';
       document.getElementById('confirmPackageTax').textContent = priceWithTax + ' جنيه';
+    document.getElementById('confirmActivationprice').textContent = Activationprice + ' جنيه';
       document.getElementById('confirmPhone').value = '';
       
       document.getElementById('confirmationModal').classList.add('active');
