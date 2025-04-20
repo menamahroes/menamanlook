@@ -1,0 +1,1089 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>باقات فودافون فليكس | شحن رصيد | أفضل العروض</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --vodafone-red: #e60000;
+      --vodafone-dark-red: #c40000;
+      --vodafone-green: #2ecc71;
+      --vodafone-dark-green: #27ae60;
+      --vodafone-blue: #0077b6;
+      --vodafone-dark-blue: #023e8a;
+      --dark: #333;
+      --light: #fff;
+      --gray: #f5f5f5;
+      --text: #444;
+    }
+    
+    * {
+      box-sizing: border-box;
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--gray);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
+    .main-header {
+      background: linear-gradient(135deg, var(--vodafone-red), var(--vodafone-dark-red));
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+      opacity: 0.1;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .main-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .main-header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+      border-bottom: 2px solid #ddd;
+    }
+    
+    .tab-btn {
+      padding: 1rem 2rem;
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s;
+    }
+    
+    .tab-btn.active {
+      color: var(--vodafone-red);
+    }
+    
+    .tab-btn.active::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      right: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--vodafone-red);
+    }
+
+    /* Packages Section */
+    .packages-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .package-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+    
+    .package-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border-color: var(--vodafone-red);
+    }
+    
+    .package-card.featured {
+      border-color: var(--vodafone-red);
+      position: relative;
+    }
+    
+    .package-card.business {
+      border-color: var(--vodafone-blue);
+    }
+    
+    .package-card.featured::before {
+      content: "الأكثر مبيعاً";
+      position: absolute;
+      top: 15px;
+      left: -35px;
+      background: var(--vodafone-red);
+      color: white;
+      padding: 0.5rem 2rem;
+      transform: rotate(-45deg);
+      font-size: 0.9rem;
+      font-weight: bold;
+      z-index: 1;
+    }
+    
+    .package-card.business::before {
+      content: "بيزنس";
+      position: absolute;
+      top: 15px;
+      left: -35px;
+      background: var(--vodafone-blue);
+      color: white;
+      padding: 0.5rem 2rem;
+      transform: rotate(-45deg);
+      font-size: 0.9rem;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    .package-title {
+      color: var(--vodafone-red);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: 700;
+    }
+    
+    .package-card.business .package-title {
+      color: var(--vodafone-blue);
+    }
+    
+    .package-price {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--dark);
+      text-align: center;
+      margin: 1rem 0;
+    }
+    
+    .price-with-tax {
+      font-size: 1.1rem;
+      color: var(--vodafone-green);
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .no-tax-badge {
+      background: var(--vodafone-green);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+      margin: 0.5rem auto;
+      text-align: center;
+    }
+
+    .flex-points {
+      background: rgba(230,0,0,0.05);
+      padding: 1.2rem;
+      border-radius: 10px;
+      text-align: center;
+      margin: 1.5rem 0;
+      border: 1px dashed var(--vodafone-red);
+    }
+    
+    .package-card.business .flex-points {
+      background: rgba(0,119,182,0.05);
+      border-color: var(--vodafone-blue);
+    }
+    
+    .flex-amount {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--vodafone-red);
+    }
+    
+    .package-card.business .flex-amount {
+      color: var(--vodafone-blue);
+    }
+
+    .package-features {
+      margin: 1.5rem 0;
+    }
+    
+    .features-title {
+      font-size: 1.2rem;
+      color: var(--vodafone-red);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .package-card.business .features-title {
+      color: var(--vodafone-blue);
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    
+    .feature-icon {
+      color: var(--vodafone-green);
+      margin-left: 0.5rem;
+    }
+
+    .subscriptions {
+      margin: 1.5rem 0;
+    }
+    
+    .subs-title {
+      font-size: 1.2rem;
+      color: var(--vodafone-green);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .subs-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subs-icon {
+      color: var(--vodafone-red);
+      margin-left: 0.5rem;
+    }
+    
+    .package-card.business .subs-icon {
+      color: var(--vodafone-blue);
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--vodafone-red), var(--vodafone-dark-red));
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+      text-decoration: none;
+      margin-top: 1.5rem;
+    }
+    
+    .package-card.business .btn {
+      background: linear-gradient(135deg, var(--vodafone-blue), var(--vodafone-dark-blue));
+    }
+    
+    .btn:hover {
+      background: linear-gradient(135deg, var(--vodafone-dark-red), var(--vodafone-red));
+      box-shadow: 0 5px 15px rgba(230,0,0,0.2);
+    }
+    
+    .package-card.business .btn:hover {
+      background: linear-gradient(135deg, var(--vodafone-dark-blue), var(--vodafone-blue));
+      box-shadow: 0 5px 15px rgba(0,119,182,0.2);
+    }
+    
+    .btn i {
+      margin-left: 0.5rem;
+    }
+
+    /* Credit Section */
+    .credit-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 2rem auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .section-title {
+      text-align: center;
+      color: var(--vodafone-red);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    
+    .form-control:focus {
+      border-color: var(--vodafone-red);
+      outline: none;
+    }
+    
+    .price-preview {
+      text-align: center;
+      margin: 1.5rem 0;
+      font-size: 1.2rem;
+    }
+    
+    #calculatedPrice {
+      color: var(--vodafone-green);
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    /* WhatsApp Float Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: #25D366;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .whatsapp-float:hover {
+      background: #128C7E;
+      transform: scale(1.05);
+    }
+    
+    .whatsapp-float img {
+      width: 24px;
+      margin-left: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .footer-contact {
+      margin-bottom: 1rem;
+    }
+    
+    .footer-contact a {
+      color: #25D366;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .copyright {
+      margin-top: 1rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Confirmation Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .confirmation-modal {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+      transform: translateY(20px);
+      transition: all 0.3s;
+    }
+    
+    .modal-overlay.active .confirmation-modal {
+      transform: translateY(0);
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .modal-title {
+      color: var(--vodafone-red);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+    
+    .confirmation-details {
+      margin-bottom: 1.5rem;
+    }
+    
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .detail-label {
+      font-weight: 600;
+    }
+    
+    .detail-value {
+      color: var(--vodafone-blue);
+      font-weight: 700;
+    }
+    
+    .modal-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .modal-btn {
+      flex: 1;
+      padding: 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    
+    .confirm-btn {
+      background: linear-gradient(135deg, var(--vodafone-green), var(--vodafone-dark-green));
+      color: white;
+      border: none;
+    }
+    
+    .confirm-btn:hover {
+      background: linear-gradient(135deg, var(--vodafone-dark-green), var(--vodafone-green));
+    }
+    
+    .cancel-btn {
+      background: white;
+      color: var(--vodafone-red);
+      border: 2px solid var(--vodafone-red);
+    }
+    
+    .cancel-btn:hover {
+      background: rgba(230,0,0,0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .packages-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+      }
+      
+      .package-card.featured::before,
+      .package-card.business::before {
+        left: -30px;
+        padding: 0.4rem 1.5rem;
+        font-size: 0.8rem;
+      }
+      
+      .whatsapp-float {
+        bottom: 20px;
+        left: 20px;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+      }
+      
+      .modal-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="header-overlay"></div>
+    <div class="header-content">
+      <h1>باقات فودافون فليكس وبيزنس</h1>
+      <p>أفضل العروض والخصومات مع خدمة شحن الرصيد المباشر</p>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showTab('packages')">باقات فليكس</button>
+    <button class="tab-btn" onclick="showTab('business')">باقات بيزنس</button>
+    <button class="tab-btn" onclick="showTab('credit')">شحن الرصيد</button>
+  </div>
+
+  <!-- Packages Tab -->
+  <div id="packages-tab">
+    <div class="packages-container">
+      <!-- Package 45 -->
+      <div class="package-card">
+        <h3 class="package-title">فليكس 45</h3>
+        <div class="flex-points">
+          <div class="flex-amount">1,500 فليكس</div>
+        </div>
+        <div class="package-price">45 جنيه</div>
+        <div class="price-with-tax">بعد الضريبة: 64.29 جنيه</div>
+        
+        <div class="package-features">
+          <h4 class="features-title">مميزات الباقة</h4>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 ميجابايت</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 دقيقة لڤودافون</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 رسالة لكل الشبكات</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>5 فليكس = 1 دقيقة لكل الشبكات/أرضي</span>
+          </div>
+        </div>
+        
+        <button class="btn" onclick="showConfirmation('فليكس 45', '45', '64.29')">
+          <i class="fas fa-shopping-cart"></i> اشترك الآن
+        </button>
+      </div>
+
+      <!-- Package 70 -->
+      <div class="package-card">
+        <h3 class="package-title">فليكس 70</h3>
+        <div class="flex-points">
+          <div class="flex-amount">3,000 فليكس</div>
+        </div>
+        <div class="package-price">70 جنيه</div>
+        <div class="price-with-tax">بعد الضريبة: 100 جنيه</div>
+        
+        <div class="subscriptions">
+          <h4 class="subs-title">اشتراكات مجانية</h4>
+          <div class="subs-item">
+            <i class="fas fa-tv subs-icon"></i>
+            <span>WATCH IT مع إعلانات</span>
+          </div>
+        </div>
+        
+        <div class="package-features">
+          <h4 class="features-title">مميزات الباقة</h4>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 ميجابايت</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 دقيقة لڤودافون</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 رسالة لكل الشبكات</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>5 فليكس = 1 دقيقة لكل الشبكات/أرضي</span>
+          </div>
+        </div>
+        
+        <button class="btn" onclick="showConfirmation('فليكس 70', '70', '100')">
+          <i class="fas fa-shopping-cart"></i> اشترك الآن
+        </button>
+      </div>
+
+      <!-- Package 100 (Featured) -->
+      <div class="package-card featured">
+        <h3 class="package-title">فليكس 100</h3>
+        <div class="flex-points">
+          <div class="flex-amount">5,000 فليكس</div>
+        </div>
+        <div class="package-price">100 جنيه</div>
+        <div class="price-with-tax">بعد الضريبة: 142.86 جنيه</div>
+        
+        <div class="subscriptions">
+          <h4 class="subs-title">اشتراكات مجانية</h4>
+          <div class="subs-item">
+            <i class="fas fa-tv subs-icon"></i>
+            <span>WATCH IT بدون إعلانات</span>
+          </div>
+          <div class="subs-item">
+            <i class="fas fa-film subs-icon"></i>
+            <span>Yango Play</span>
+          </div>
+          <div class="subs-item">
+            <i class="fas fa-music subs-icon"></i>
+            <span>انغامي بلس</span>
+          </div>
+        </div>
+        
+        <div class="package-features">
+          <h4 class="features-title">مميزات الباقة</h4>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 ميجابايت</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 دقيقة لڤودافون</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 رسالة لكل الشبكات</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>5 فليكس = 1 دقيقة لكل الشبكات/أرضي</span>
+          </div>
+        </div>
+        
+        <button class="btn" onclick="showConfirmation('فليكس 100', '100', '142.86')">
+          <i class="fas fa-shopping-cart"></i> اشترك الآن
+        </button>
+      </div>
+
+      <!-- Package 150 -->
+      <div class="package-card">
+        <h3 class="package-title">فليكس 150</h3>
+        <div class="flex-points">
+          <div class="flex-amount">9,000 فليكس</div>
+        </div>
+        <div class="package-price">150 جنيه</div>
+        <div class="price-with-tax">بعد الضريبة: 214.29 جنيه</div>
+        
+        <div class="subscriptions">
+          <h4 class="subs-title">اشتراكات مجانية</h4>
+          <div class="subs-item">
+            <i class="fas fa-tv subs-icon"></i>
+            <span>WATCH IT بدون إعلانات</span>
+          </div>
+          <div class="subs-item">
+            <i class="fas fa-film subs-icon"></i>
+            <span>Yango Play</span>
+          </div>
+          <div class="subs-item">
+            <i class="fas fa-music subs-icon"></i>
+            <span>انغامي بلس</span>
+          </div>
+        </div>
+        
+        <div class="package-features">
+          <h4 class="features-title">مميزات الباقة</h4>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 ميجابايت</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 دقيقة لڤودافون</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 رسالة لكل الشبكات</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>5 فليكس = 1 دقيقة لكل الشبكات/أرضي</span>
+          </div>
+        </div>
+        
+        <button class="btn" onclick="showConfirmation('فليكس 150', '150', '214.29')">
+          <i class="fas fa-shopping-cart"></i> اشترك الآن
+        </button>
+      </div>
+
+      <!-- Package 260 -->
+      <div class="package-card">
+        <h3 class="package-title">فليكس 260</h3>
+        <div class="flex-points">
+          <div class="flex-amount">13,000 فليكس</div>
+        </div>
+        <div class="package-price">220 جنيه</div>
+        <div class="no-tax-badge">السعر النهائي بدون ضريبة</div>
+        
+        <div class="subscriptions">
+          <h4 class="subs-title">اشتراكات مجانية</h4>
+          <div class="subs-item">
+            <i class="fas fa-tv subs-icon"></i>
+            <span>WATCH IT بدون إعلانات</span>
+          </div>
+          <div class="subs-item">
+            <i class="fas fa-film subs-icon"></i>
+            <span>Yango Play</span>
+          </div>
+          <div class="subs-item">
+            <i class="fas fa-music subs-icon"></i>
+            <span>انغامي بلس</span>
+          </div>
+          <div class="subs-item">
+            <i class="fas fa-clock subs-icon"></i>
+            <span>التفعيل على مدار اليوم</span>
+          </div>
+        </div>
+        
+        <div class="package-features">
+          <h4 class="features-title">مميزات الباقة</h4>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 ميجابايت</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 دقيقة لڤودافون</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 رسالة لكل الشبكات</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>5 فليكس = 1 دقيقة لكل الشبكات/أرضي</span>
+          </div>
+        </div>
+        
+        <button class="btn" onclick="showConfirmation('فليكس 260', '220', '220')">
+          <i class="fas fa-shopping-cart"></i> اشترك الآن
+        </button>
+      </div>
+
+      <!-- Package 300 -->
+      <div class="package-card">
+        <h3 class="package-title">فليكس 300</h3>
+        <div class="flex-points">
+          <div class="flex-amount">21,000 فليكس</div>
+        </div>
+        <div class="package-price">300 جنيه</div>
+        <div class="price-with-tax">بعد الضريبة: 428.57 جنيه</div>
+        
+        <div class="subscriptions">
+          <h4 class="subs-title">اشتراكات مجانية</h4>
+          <div class="subs-item">
+            <i class="fas fa-tv subs-icon"></i>
+            <span>WATCH IT بدون إعلانات</span>
+          </div>
+          <div class="subs-item">
+            <i class="fas fa-film subs-icon"></i>
+            <span>Yango Play</span>
+          </div>
+          <div class="subs-item">
+            <i class="fas fa-music subs-icon"></i>
+            <span>انغامي بلس</span>
+          </div>
+        </div>
+        
+        <div class="package-features">
+          <h4 class="features-title">مميزات الباقة</h4>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 ميجابايت</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 دقيقة لڤودافون</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>1 فليكس = 1 رسالة لكل الشبكات</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>5 فليكس = 1 دقيقة لكل الشبكات/أرضي</span>
+          </div>
+        </div>
+        
+        <button class="btn" onclick="showConfirmation('فليكس 300', '300', '428.57')">
+          <i class="fas fa-shopping-cart"></i> اشترك الآن
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Business Packages Tab -->
+  <div id="business-tab" style="display: none;">
+    <div class="packages-container">
+      <!-- Business Internet Package -->
+      <div class="package-card business">
+        <h3 class="package-title">بيزنس انترنت متجددة</h3>
+        <div class="flex-points">
+          <div class="flex-amount">انترنت بلا حدود</div>
+        </div>
+        <div class="package-price">100 جنيه</div>
+        <div class="price-with-tax">السعر شامل الضريبة</div>
+        
+        <div class="package-features">
+          <h4 class="features-title">مميزات الباقة</h4>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>انترنت متجددة بلا حدود</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>تجدد مره واحده شهرياً</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>لا تعمل علي خطوط 14 قرش بيزنس فقط</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>التفعيل خلال ساعة من الطلب</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle feature-icon"></i>
+            <span>تختلف الاسعار علي حسب حجم الباقه</span>
+          </div>
+        </div>
+        
+        <button class="btn" onclick="showConfirmation('بيزنس انترنت متجددة بلا حدود', '100', '100')">
+          <i class="fas fa-shopping-cart"></i> اشترك الآن
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Credit Tab -->
+  <div id="credit-tab" style="display: none;">
+    <div class="credit-section">
+      <h2 class="section-title">خدمة شحن الرصيد</h2>
+      
+      <div class="form-group">
+        <label class="form-label">رقم الهاتف المراد شحنه</label>
+        <input type="tel" id="creditPhone" class="form-control" placeholder="01XXXXXXXX" pattern="01[0-9]{9}">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">مبلغ الشحن (جنيه)</label>
+        <input type="range" id="creditAmountSlider" min="10" max="200" step="5" value="10" class="form-control" oninput="updateCreditAmount(this.value)">
+        <input type="number" id="creditAmount" min="10" max="200" step="5" value="10" class="form-control" oninput="updateCreditSlider(this.value)">
+        <p style="text-align: center; color: var(--text); margin-top: 0.5rem;">100 رصيد صافي = 125 جنيه كاش</p>
+      </div>
+      
+      <div class="price-preview">
+        <p>المبلغ المطلوب: <span id="calculatedPrice">10 جنيه</span></p>
+      </div>
+      
+      <button class="btn" onclick="sendCreditRequest()">
+        <i class="fab fa-whatsapp"></i> اطلب عبر واتساب
+      </button>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal-overlay" id="confirmationModal">
+    <div class="confirmation-modal">
+      <div class="modal-header">
+        <h3 class="modal-title">تأكيد الطلب</h3>
+        <button class="close-modal" onclick="closeConfirmation()">&times;</button>
+      </div>
+      
+      <div class="confirmation-details">
+        <div class="detail-row">
+          <span class="detail-label">اسم الباقة:</span>
+          <span class="detail-value" id="confirmPackageName"></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">السعر الأساسي:</span>
+          <span class="detail-value" id="confirmPackagePrice"></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">السعر بعد الضريبة:</span>
+          <span class="detail-value" id="confirmPackageTax"></span>
+        </div>
+        
+        <div class="form-group" style="margin-top: 1.5rem;">
+          <label class="form-label">رقم الهاتف المراد الاشتراك به</label>
+          <input type="tel" id="confirmPhone" class="form-control" placeholder="01XXXXXXXX" pattern="01[0-9]{9}">
+        </div>
+      </div>
+      
+      <div class="modal-buttons">
+        <button class="modal-btn cancel-btn" onclick="closeConfirmation()">إلغاء</button>
+        <button class="modal-btn confirm-btn" onclick="confirmPurchase()">تأكيد الشراء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/201095108293" class="whatsapp-float" target="_blank">
+    <span>تواصل معنا</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب" class="whatsapp-icon">
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-contact">
+      <p>للتواصل والاستفسار: <a href="https://wa.me/201095108293">01095108293</a></p>
+    </div>
+    <div class="copyright">
+     MINA جميع الحقوق محفوظة &copy; 2025 - باقات فودافون فليكس وبيزنس
+    </div>
+  </footer>
+
+  <script>
+    // Current selected package
+    let currentPackage = null;
+    
+    // Switch between tabs
+    function showTab(tabName) {
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      
+      document.getElementById('packages-tab').style.display = 'none';
+      document.getElementById('business-tab').style.display = 'none';
+      document.getElementById('credit-tab').style.display = 'none';
+      
+      if (tabName === 'packages') {
+        document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
+        document.getElementById('packages-tab').style.display = 'block';
+      } else if (tabName === 'business') {
+        document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+        document.getElementById('business-tab').style.display = 'block';
+      } else {
+        document.querySelector('.tab-btn:nth-child(3)').classList.add('active');
+        document.getElementById('credit-tab').style.display = 'block';
+      }
+    }
+    
+    // Show confirmation modal
+    function showConfirmation(packageName, price, priceWithTax) {
+      currentPackage = {
+        name: packageName,
+        price: price,
+        priceWithTax: priceWithTax
+      };
+      
+      document.getElementById('confirmPackageName').textContent = packageName;
+      document.getElementById('confirmPackagePrice').textContent = price + ' جنيه';
+      document.getElementById('confirmPackageTax').textContent = priceWithTax + ' جنيه';
+      document.getElementById('confirmPhone').value = '';
+      
+      document.getElementById('confirmationModal').classList.add('active');
+    }
+    
+    // Close confirmation modal
+    function closeConfirmation() {
+      document.getElementById('confirmationModal').classList.remove('active');
+      currentPackage = null;
+    }
+    
+    // Confirm purchase
+    function confirmPurchase() {
+      const phone = document.getElementById('confirmPhone').value.trim();
+      
+      if (!phone.match(/^01[0-9]{9}$/)) {
+        alert('الرجاء إدخال رقم هاتف صحيح (يبدأ بـ 01 ويتكون من 11 رقمًا)');
+        return;
+      }
+      
+      const message = `أريد الاشتراك في باقة ${currentPackage.name}\nرقم الهاتف: ${phone}\nالسعر: ${currentPackage.priceWithTax} جنيه\n\nالرجاء التواصل معي لتأكيد الطلب`;
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/201095108293?text=${encodedMessage}`, '_blank');
+      
+      closeConfirmation();
+    }
+    
+    // Credit amount handling
+    function updateCreditAmount(value) {
+      document.getElementById('creditAmount').value = value;
+      document.getElementById('calculatedPrice').textContent = value + ' جنيه';
+    }
+    
+    function updateCreditSlider(value) {
+      if (value < 10) value = 10;
+      if (value > 200) value = 200;
+      document.getElementById('creditAmountSlider').value = value;
+      document.getElementById('calculatedPrice').textContent = value + ' جنيه';
+    }
+    
+    // Send credit request
+    function sendCreditRequest() {
+      const phone = document.getElementById('creditPhone').value.trim();
+      const amount = document.getElementById('creditAmount').value.trim();
+      
+      if (!phone.match(/^01[0-9]{9}$/)) {
+        alert('الرجاء إدخال رقم هاتف صحيح (يبدأ بـ 01 ويتكون من 11 رقمًا)');
+        return;
+      }
+      
+      if (amount < 10 || amount > 200) {
+        alert('الرجاء إدخال مبلغ بين 10 و 200 جنيه');
+        return;
+      }
+      
+      const netCredit = Math.floor(amount * 0.8);
+      const message = `أريد شحن رصيد لرقم: ${phone}\nالمبلغ: ${amount} جنيه\nالرصيد الصافي: ${netCredit} جنيه\n\nالرجاء التواصل معي لتأكيد الطلب`;
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/201095108293?text=${encodedMessage}`, '_blank');
+    }
+  </script>
+</body>
+</html>
