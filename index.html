@@ -964,7 +964,7 @@
           <span class="detail-value" id="confirmPackageTax"></span>
         </div>
         <div class="detail-row">
-          <span class="detail-label"> سعر التفعيل :</span>
+          <span class="detail-label"> سعر التفعيل:</span>
           <span class="detail-value" id="confirmPackageTax"></span>
         </div>
         
@@ -1027,14 +1027,14 @@
       currentPackage = {
         name: packageName,
         price: price,
-        priceWithTax: priceWithTax
+        priceWithTax: priceWithTax,
         Activationprice: Activationprice
       };
       
       document.getElementById('confirmPackageName').textContent = packageName;
       document.getElementById('confirmPackagePrice').textContent = price + ' جنيه';
       document.getElementById('confirmPackageTax').textContent = priceWithTax + ' جنيه';
-    document.getElementById('confirmActivationprice').textContent = Activationprice + ' جنيه';
+      document.getElementById('confirmActivationprice').textContent = Activationprice + ' جنيه';
       document.getElementById('confirmPhone').value = '';
       
       document.getElementById('confirmationModal').classList.add('active');
